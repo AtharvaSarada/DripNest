@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dripnest - Fashion Forward, Always</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <div class="logo">
+                    <h1>Dripnest</h1>
+                </div>
+                
+                <nav class="nav" id="nav">
+                    <a href="#" class="nav__link" data-page="home">Home</a>
+                    <a href="#" class="nav__link" data-page="products">Products</a>
+                    <a href="#" class="nav__link" data-page="about">About</a>
+                    <a href="#" class="nav__link" data-page="contact">Contact</a>
+                </nav>
+                
+                <div class="header__actions">
+                    <button class="cart-btn" id="cart-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.7 15.3C4.3 15.7 4.6 16.5 5.1 16.5H17M17 13V16.5M9 19.5C9.8 19.5 10.5 20.2 10.5 21S9.8 22.5 9 22.5 7.5 21.8 7.5 21 8.2 19.5 9 19.5ZM20 19.5C20.8 19.5 21.5 20.2 21.5 21S20.8 22.5 20 22.5 18.5 21.8 18.5 21 19.2 19.5 20 19.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </button>
+                    
+                    <div class="auth-buttons" id="auth-buttons">
+                        <button class="btn btn--outline btn--sm" data-page="customer-login">Customer Login</button>
+                        <button class="btn btn--primary btn--sm" data-page="admin-login">Admin Login</button>
+                    </div>
+                    
+                    <div class="user-menu hidden" id="user-menu">
+                        <span class="user-name" id="user-name"></span>
+                        <button class="btn btn--outline btn--sm" id="logout-btn">Logout</button>
+                    </div>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Homepage -->
+        <div class="page active" id="home-page">
+            <section class="hero">
+                <div class="hero__content">
+                    <div class="container">
+                        <h1 class="hero__title">Fashion Forward, Always</h1>
+                        <p class="hero__subtitle">Discover the latest trends in fashion with Dripnest's curated collection of premium clothing and accessories.</p>
+                        <button class="btn btn--primary btn--lg hero__cta" data-page="products">Shop Now</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="featured-products">
+                <div class="container">
+                    <h2 class="section-title">Featured Products</h2>
+                    <div class="products__grid" id="featured-products-grid">
+                        <!-- Featured products will be loaded here -->
+                    </div>
+                </div>
+            </section>
+
+            <section class="value-props">
+                <div class="container">
+                    <div class="value-props__grid">
+                        <div class="value-prop">
+                            <div class="value-prop__icon">🚚</div>
+                            <h3>Free Shipping</h3>
+                            <p>Free delivery on orders over $100</p>
+                        </div>
+                        <div class="value-prop">
+                            <div class="value-prop__icon">🔒</div>
+                            <h3>Secure Payment</h3>
+                            <p>Your payment information is protected</p>
+                        </div>
+                        <div class="value-prop">
+                            <div class="value-prop__icon">↩️</div>
+                            <h3>Easy Returns</h3>
+                            <p>30-day return policy</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Customer Login Page -->
+        <div class="page" id="customer-login-page">
+            <div class="container">
+                <div class="auth-container">
+                    <div class="auth-tabs">
+                        <button class="auth-tab active" data-tab="login">Login</button>
+                        <button class="auth-tab" data-tab="register">Register</button>
+                    </div>
+                    
+                    <div class="auth-content">
+                        <div class="tab-content active" id="login-tab">
+                            <h2>Customer Login</h2>
+                            <form id="customer-login-form" class="auth-form">
+                                <div class="form-group">
+                                    <label class="form-label" for="login-email">Email</label>
+                                    <input type="email" id="login-email" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="login-password">Password</label>
+                                    <input type="password" id="login-password" class="form-control" required>
+                                </div>
+                                <button type="submit" class="btn btn--primary btn--full-width">Login</button>
+                            </form>
+                        </div>
+                        
+                        <div class="tab-content" id="register-tab">
+                            <h2>Create Account</h2>
+                            <form id="customer-register-form" class="auth-form">
+                                <div class="form-group">
+                                    <label class="form-label" for="register-name">Full Name</label>
+                                    <input type="text" id="register-name" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="register-email">Email</label>
+                                    <input type="email" id="register-email" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="register-password">Password</label>
+                                    <input type="password" id="register-password" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="register-confirm">Confirm Password</label>
+                                    <input type="password" id="register-confirm" class="form-control" required>
+                                </div>
+                                <button type="submit" class="btn btn--primary btn--full-width">Create Account</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Login Page -->
+        <div class="page" id="admin-login-page">
+            <div class="container">
+                <div class="auth-container">
+                    <h2>Admin Login</h2>
+                    <form id="admin-login-form" class="auth-form">
+                        <div class="form-group">
+                            <label class="form-label" for="admin-username">Username</label>
+                            <input type="text" id="admin-username" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="admin-password">Password</label>
+                            <input type="password" id="admin-password" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full-width">Login as Admin</button>
+                    </form>
+                    <p class="auth-note">Demo credentials: admin / admin123</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Dashboard -->
+        <div class="page" id="admin-dashboard-page">
+            <div class="container">
+                <div class="dashboard-header">
+                    <h1>Admin Dashboard</h1>
+                    <div class="dashboard-nav">
+                        <button class="btn btn--outline" data-admin-section="products">Manage Products</button>
+                        <button class="btn btn--outline" data-admin-section="orders">View Orders</button>
+                        <button class="btn btn--outline" data-admin-section="add-product">Add Product</button>
+                    </div>
+                </div>
+
+                <!-- Products Management -->
+                <div class="admin-section active" id="admin-products">
+                    <h2>Product Management</h2>
+                    <div class="products-table">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Stock</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="products-table-body">
+                                <!-- Product rows will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Add Product -->
+                <div class="admin-section" id="admin-add-product">
+                    <h2>Add New Product</h2>
+                    <form id="add-product-form" class="product-form">
+                        <div class="form-group">
+                            <label class="form-label" for="product-name">Product Name</label>
+                            <input type="text" id="product-name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="product-category">Category</label>
+                            <select id="product-category" class="form-control" required>
+                                <option value="">Select Category</option>
+                                <option value="T-Shirts">T-Shirts</option>
+                                <option value="Hoodies">Hoodies</option>
+                                <option value="Jeans">Jeans</option>
+                                <option value="Shoes">Shoes</option>
+                                <option value="Accessories">Accessories</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="product-price">Price ($)</label>
+                            <input type="number" id="product-price" class="form-control" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="product-stock">Stock Quantity</label>
+                            <input type="number" id="product-stock" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="product-description">Description</label>
+                            <textarea id="product-description" class="form-control" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn--primary">Add Product</button>
+                    </form>
+                </div>
+
+                <!-- Orders Management -->
+                <div class="admin-section" id="admin-orders">
+                    <h2>Order Management</h2>
+                    <div class="orders-list" id="orders-list">
+                        <!-- Orders will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Page -->
+        <div class="page" id="products-page">
+            <div class="container">
+                <div class="products-header">
+                    <h1>All Products</h1>
+                    <div class="products-filters">
+                        <select id="category-filter" class="form-control">
+                            <option value="">All Categories</option>
+                            <option value="T-Shirts">T-Shirts</option>
+                            <option value="Hoodies">Hoodies</option>
+                            <option value="Jeans">Jeans</option>
+                            <option value="Shoes">Shoes</option>
+                            <option value="Accessories">Accessories</option>
+                        </select>
+                        <input type="text" id="search-products" class="form-control" placeholder="Search products...">
+                    </div>
+                </div>
+                <div class="products__grid" id="all-products-grid">
+                    <!-- All products will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Customer Account Page -->
+        <div class="page" id="account-page">
+            <div class="container">
+                <h1>My Account</h1>
+                <div class="account-sections">
+                    <div class="account-nav">
+                        <button class="btn btn--outline" data-account-section="profile">Profile</button>
+                        <button class="btn btn--outline" data-account-section="orders">Order History</button>
+                    </div>
+                    
+                    <div class="account-section active" id="account-profile">
+                        <h2>Profile Information</h2>
+                        <div class="profile-info" id="profile-info">
+                            <!-- Profile info will be loaded here -->
+                        </div>
+                    </div>
+                    
+                    <div class="account-section" id="account-orders">
+                        <h2>Order History</h2>
+                        <div class="order-history" id="order-history">
+                            <!-- Order history will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Product Detail Modal -->
+    <div class="modal hidden" id="product-modal">
+        <div class="modal__backdrop" onclick="closeModal('product-modal')"></div>
+        <div class="modal__content">
+            <button class="modal__close" onclick="closeModal('product-modal')">×</button>
+            <div class="product-detail" id="product-detail">
+                <!-- Product details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="modal hidden" id="cart-modal">
+        <div class="modal__backdrop" onclick="closeModal('cart-modal')"></div>
+        <div class="modal__content">
+            <button class="modal__close" onclick="closeModal('cart-modal')">×</button>
+            <div class="cart-content">
+                <h2>Shopping Cart</h2>
+                <div id="cart-items"></div>
+                <div class="cart-summary">
+                    <div class="cart-total">
+                        <strong>Total: $<span id="cart-total">0.00</span></strong>
+                    </div>
+                    <button class="btn btn--primary btn--full-width" onclick="proceedToCheckout()">
+                        Proceed to Checkout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal hidden" id="checkout-modal">
+        <div class="modal__backdrop" onclick="closeModal('checkout-modal')"></div>
+        <div class="modal__content modal__content--large">
+            <button class="modal__close" onclick="closeModal('checkout-modal')">×</button>
+            <div class="checkout-content">
+                <h2>Checkout</h2>
+                <form id="checkout-form" class="checkout-form">
+                    <div class="form-group">
+                        <label class="form-label" for="checkout-name">Full Name</label>
+                        <input type="text" id="checkout-name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="checkout-email">Email</label>
+                        <input type="email" id="checkout-email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="checkout-address">Shipping Address</label>
+                        <textarea id="checkout-address" class="form-control" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="checkout-card">Card Number</label>
+                        <input type="text" id="checkout-card" class="form-control" placeholder="1234 5678 9012 3456" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="checkout-expiry">Expiry</label>
+                            <input type="text" id="checkout-expiry" class="form-control" placeholder="MM/YY" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="checkout-cvv">CVV</label>
+                            <input type="text" id="checkout-cvv" class="form-control" placeholder="123" required>
+                        </div>
+                    </div>
+                    <div class="order-summary">
+                        <h3>Order Summary</h3>
+                        <div id="checkout-items"></div>
+                        <div class="order-total">
+                            <strong>Total: $<span id="checkout-total">0.00</span></strong>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full-width">Complete Order</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Product Modal -->
+    <div class="modal hidden" id="edit-product-modal">
+        <div class="modal__backdrop" onclick="closeModal('edit-product-modal')"></div>
+        <div class="modal__content">
+            <button class="modal__close" onclick="closeModal('edit-product-modal')">×</button>
+            <div class="edit-product-content">
+                <h2>Edit Product</h2>
+                <form id="edit-product-form" class="product-form">
+                    <input type="hidden" id="edit-product-id">
+                    <div class="form-group">
+                        <label class="form-label" for="edit-product-name">Product Name</label>
+                        <input type="text" id="edit-product-name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="edit-product-category">Category</label>
+                        <select id="edit-product-category" class="form-control" required>
+                            <option value="T-Shirts">T-Shirts</option>
+                            <option value="Hoodies">Hoodies</option>
+                            <option value="Jeans">Jeans</option>
+                            <option value="Shoes">Shoes</option>
+                            <option value="Accessories">Accessories</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="edit-product-price">Price ($)</label>
+                        <input type="number" id="edit-product-price" class="form-control" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="edit-product-stock">Stock Quantity</label>
+                        <input type="number" id="edit-product-stock" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="edit-product-description">Description</label>
+                        <textarea id="edit-product-description" class="form-control" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--primary">Update Product</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal hidden" id="success-modal">
+        <div class="modal__backdrop"></div>
+        <div class="modal__content modal__content--small">
+            <div class="success-content">
+                <div class="success-icon">✅</div>
+                <h2>Success!</h2>
+                <p id="success-message">Operation completed successfully.</p>
+                <button class="btn btn--primary" onclick="closeModal('success-modal')">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
